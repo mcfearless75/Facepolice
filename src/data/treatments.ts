@@ -13,6 +13,8 @@ export type Treatment = {
   idealFor: string[];
   expect: { label: string; value: string }[];
   faqs: { q: string; a: string }[];
+  heroImage?: { src: string; alt: string };
+  badges?: { src: string; alt: string }[];
 };
 
 export const treatments: Treatment[] = [
@@ -56,6 +58,7 @@ export const treatments: Treatment[] = [
         a: 'Most clients describe it as a series of brief scratches. A fine needle and slow technique are used throughout to keep the appointment comfortable.',
       },
     ],
+    heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
   {
     slug: 'dermal-fillers',
@@ -98,6 +101,7 @@ export const treatments: Treatment[] = [
         a: 'Hyaluronic acid — a sugar molecule that occurs naturally in skin and holds water, giving structure and hydration. It is fully dissolvable if ever needed.',
       },
     ],
+    heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
   {
     slug: 'polynucleotides',
@@ -140,6 +144,7 @@ export const treatments: Treatment[] = [
         a: 'Most concerns respond well to a course of 2–4 sessions. This is agreed and tailored at your consultation based on your skin and goals.',
       },
     ],
+    heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
   {
     slug: 'skin-boosters',
@@ -176,6 +181,7 @@ export const treatments: Treatment[] = [
         a: 'Yes — skin boosters are often paired with polynucleotides or LED therapy as part of a wider skin quality plan, agreed at consultation.',
       },
     ],
+    heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
   {
     slug: 'biostimulators',
@@ -212,6 +218,7 @@ export const treatments: Treatment[] = [
         a: 'Biostimulators work with your own collagen for a gradual, longer-lasting improvement in facial structure, rather than an immediate volumising effect. Which is right for you is discussed at consultation.',
       },
     ],
+    heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
   {
     slug: 'fat-dissolving',
@@ -247,6 +254,7 @@ export const treatments: Treatment[] = [
         a: 'The area is usually numbed first. Swelling and a tight, tender sensation for several days afterwards is normal and expected.',
       },
     ],
+    heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
   {
     slug: 'led-therapy',
@@ -283,6 +291,8 @@ export const treatments: Treatment[] = [
         a: 'Yes — it is commonly added on the same day as injectable or regenerative treatments to support the skin’s healing response.',
       },
     ],
+    heroImage: { src: '/images/site/led-therapy.jpg', alt: 'Client under the Dermalux Flex MD LED panel at Face Crease Police' },
+    badges: [{ src: '/images/dermalux.png', alt: 'Dermalux — Next Generation SkinTec' }],
   },
   {
     slug: 'micro-needling',
@@ -318,6 +328,10 @@ export const treatments: Treatment[] = [
         q: 'Is micro-needling suitable for all skin types?',
         a: 'It suits most skin types and tones, though it is assessed individually — active infections, certain skin conditions or recent isotretinoin use may mean postponing treatment.',
       },
+    ],
+    badges: [
+      { src: '/images/logo-skinpen-ca.jpg', alt: 'SkinPen by Crown Aesthetics' },
+      { src: '/images/logo-crown-aesthetics-horizontal-1000px.png', alt: 'Crown Aesthetics — Skin Science for Life' },
     ],
   },
 ];

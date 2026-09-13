@@ -64,8 +64,18 @@ const featured = generalFaqs.slice(0, 4);
       </div>
 
       <div class="relative">
-        <div class="aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-gradient-to-br from-ink-900 via-ink-800 to-rose-500/40 shadow-soft">
-          <div class="flex h-full w-full items-end p-8">
+        <div class="aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-soft">
+          <img
+            src="/images/site/hero-injection.jpg"
+            alt="Jo, Advanced Nurse Practitioner at Face Crease Police, administering a treatment in clinic"
+            width="1800"
+            height="2295"
+            class="h-full w-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+          />
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/0 to-ink-950/0"></div>
+          <div class="absolute inset-x-0 bottom-0 flex items-end p-8">
             <div class="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
               <p class="font-display text-lg font-semibold text-porcelain-50">"Assessment before treatment. Always."</p>
               <p class="mt-1 text-sm text-porcelain-100/70">— {site.practitioner.name}, {site.practitioner.role}</p>

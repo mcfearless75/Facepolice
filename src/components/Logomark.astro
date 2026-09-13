@@ -5,22 +5,4 @@ interface Props {
 const { class: className = 'h-9 w-9' } = Astro.props;
 ---
 
-<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class={className} aria-hidden="true">
-  <path
-    d="M24 3 6 9v12c0 12.2 7.6 20.8 18 24 10.4-3.2 18-11.8 18-24V9L24 3Z"
-    class="fill-ink-900"
-  ></path>
-  <path
-    d="M24 6.3 9 11.4v9.6c0 10.6 6.5 17.9 15 20.7 8.5-2.8 15-10.1 15-20.7v-9.6L24 6.3Z"
-    class="fill-none stroke-gold-400"
-    stroke-width="1"
-  ></path>
-  <path
-    d="M16.5 24.5 21.5 29.5 32 18"
-    class="stroke-porcelain-50"
-    stroke-width="2.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    fill="none"
-  ></path>
-</svg>
+<img src="/images/logo.png" alt="" class={`${className} object-contain`} width="512" height="512" loading="eager" decoding="async" aria-hidden="true" />

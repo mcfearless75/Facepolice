@@ -65,6 +65,24 @@ const year = new Date().getFullYear();
     </div>
   </div>
 
+  <div class="border-t border-white/10 py-10">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-porcelain-100/40">Accreditations</p>
+      <div class="mt-4 flex flex-wrap items-center gap-3">
+        {[
+          ['/images/nursing-and-midwifery-council-logo.jpg', 'Nursing & Midwifery Council'],
+          ['/images/31855.png', 'Hamilton Fraser Cosmetic Insurance'],
+          ['/images/white-badge-policybee.png', 'Insured through PolicyBee'],
+          ['/images/31856.png', 'VTCT accredited'],
+        ].map(([src, alt]) => (
+          <span class="grid h-14 w-14 place-items-center rounded-xl bg-porcelain-50 p-2 shadow-soft">
+            <img src={src} alt={alt} class="h-full w-full object-contain" loading="lazy" />
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+
   <div class="border-t border-white/10">
     <div class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs text-porcelain-100/50 sm:flex-row sm:items-center sm:justify-between sm:px-8">
       <p>&copy; {year} {site.name} — a trade name of {site.legalName}. All rights reserved.</p>

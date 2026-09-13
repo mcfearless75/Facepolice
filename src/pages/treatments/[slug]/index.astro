@@ -58,8 +58,33 @@ const fallbackRelated = related.length ? related : treatments.filter((t) => t.sl
       >
         Enquire About {treatment.shortName}
       </a>
+
+      {treatment.badges && (
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-ink-900/10 pt-6">
+          {treatment.badges.map((badge) => (
+            <img src={badge.src} alt={badge.alt} class="h-7 w-auto object-contain opacity-90" loading="lazy" />
+          ))}
+        </div>
+      )}
     </div>
   </section>
+
+  {treatment.heroImage && (
+    <section class="border-b border-ink-900/10 bg-white">
+      <div class="mx-auto max-w-5xl px-5 pb-16 sm:px-8">
+        <div class="overflow-hidden rounded-[2rem] shadow-soft">
+          <img
+            src={treatment.heroImage.src}
+            alt={treatment.heroImage.alt}
+            width="1800"
+            height="1000"
+            class="h-full max-h-[520px] w-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="mx-auto grid max-w-4xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[2fr_1fr]">
     <div>
