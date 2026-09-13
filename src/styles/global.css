@@ -7,14 +7,14 @@
     -webkit-text-size-adjust: 100%;
   }
   ::selection {
-    background-color: #c9793d;
-    color: #fbf9f6;
+    background-color: #c9a227;
+    color: #082a20;
   }
 }
 
 @layer components {
   .prose-clinic {
-    @apply prose prose-neutral max-w-none prose-headings:font-display prose-headings:font-semibold prose-a:text-gold-600;
+    @apply prose prose-neutral max-w-none prose-headings:font-display prose-headings:font-semibold prose-a:text-aurelia-600;
   }
 
   /* Buttons — shared so a single hover/motion treatment applies everywhere. */
@@ -22,16 +22,16 @@
     @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-300 ease-out will-change-transform;
   }
   .btn-dark {
-    @apply btn bg-ink-900 text-porcelain-50 shadow-soft hover:-translate-y-0.5 hover:bg-ink-800 hover:shadow-lg;
+    @apply btn bg-emerald-900 text-ivory-50 shadow-soft hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-lg;
   }
   .btn-outline {
-    @apply btn border border-ink-900/15 text-ink-900 hover:-translate-y-0.5 hover:border-ink-900/40 hover:bg-white;
+    @apply btn border border-emerald-900/15 text-emerald-900 hover:-translate-y-0.5 hover:border-emerald-900/40 hover:bg-white;
   }
   .btn-gold {
-    @apply btn bg-gold-400 text-porcelain-50 shadow-soft hover:-translate-y-0.5 hover:bg-gold-500 hover:shadow-lg;
+    @apply btn bg-aurelia-400 text-ivory-50 shadow-soft hover:-translate-y-0.5 hover:bg-aurelia-500 hover:shadow-lg;
   }
   .btn-ghost {
-    @apply btn border border-white/20 text-porcelain-50 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/5;
+    @apply btn border border-white/20 text-ivory-50 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/5;
   }
 
   /* Nav underline — pure CSS, no extra markup needed. */

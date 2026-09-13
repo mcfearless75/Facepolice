@@ -26,7 +26,7 @@ export const treatments: Treatment[] = [
     goals: ['relax'],
     isPOM: true,
     summary: 'Prescription-only muscle-relaxing injections to soften expression lines on the forehead, frown and eye area.',
-    metaTitle: 'Anti-Wrinkle Treatment in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'Anti-Wrinkle Treatment in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'Prescriber-led anti-wrinkle treatment in Hoylake, Wirral. Consultation-first assessment with an Advanced Nurse Practitioner before any prescription-only medicine is considered.',
     answer:
@@ -68,7 +68,7 @@ export const treatments: Treatment[] = [
     goals: ['refresh'],
     isPOM: false,
     summary: 'Hyaluronic acid fillers to restore volume, soften folds and refine facial contours — lips, cheeks, chin, jawline and tear troughs.',
-    metaTitle: 'Dermal Fillers in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'Dermal Fillers in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'Assessment-led dermal filler treatment in Hoylake, Wirral with Advanced Nurse Practitioner Jo. Lips, cheeks, jawline, chin and tear troughs, using hyaluronic acid fillers.',
     answer:
@@ -111,7 +111,7 @@ export const treatments: Treatment[] = [
     goals: ['refresh', 'renew'],
     isPOM: false,
     summary: 'Regenerative injectable treatment that stimulates the skin’s own repair process to improve texture, elasticity and hydration from within.',
-    metaTitle: 'Polynucleotide Treatment in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'Polynucleotide Treatment in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'Polynucleotide skin regeneration in Hoylake, Wirral. A cutting-edge, non-volumising treatment that stimulates collagen and repairs skin quality, delivered by an Advanced Nurse Practitioner.',
     answer:
@@ -154,7 +154,7 @@ export const treatments: Treatment[] = [
     goals: ['refine'],
     isPOM: false,
     summary: 'Micro-injections of hyaluronic acid that hydrate skin from within, improving tone, elasticity and radiance.',
-    metaTitle: 'Skin Boosters in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'Skin Boosters in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'Hydrating skin booster treatment in Hoylake, Wirral. Fine-needle or cannula delivered hyaluronic acid boosters to improve tone, hydration and radiance.',
     answer:
@@ -191,7 +191,7 @@ export const treatments: Treatment[] = [
     goals: ['renew'],
     isPOM: false,
     summary: 'Long-lasting collagen-stimulating injectables that gradually restore facial volume and structural quality over time.',
-    metaTitle: 'Biostimulators in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'Biostimulators in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'Collagen-stimulating biostimulator treatment in Hoylake, Wirral. A gradual, natural approach to restoring facial volume and structure.',
     answer:
@@ -228,7 +228,7 @@ export const treatments: Treatment[] = [
     goals: ['refine'],
     isPOM: false,
     summary: 'Injectable treatment used to target small, stubborn pockets of fat such as under the chin.',
-    metaTitle: 'Fat Dissolving Injections in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'Fat Dissolving Injections in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'Fat dissolving treatment in Hoylake, Wirral for stubborn localised fat, most commonly under the chin. Assessment-led approach with an Advanced Nurse Practitioner.',
     answer:
@@ -264,7 +264,7 @@ export const treatments: Treatment[] = [
     goals: ['refine'],
     isPOM: false,
     summary: 'Non-invasive light therapy that calms inflammation, supports healing and improves overall skin clarity.',
-    metaTitle: 'LED Light Therapy in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'LED Light Therapy in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'LED light therapy in Hoylake, Wirral to support skin healing, reduce inflammation and improve clarity — used standalone or after injectable treatment.',
     answer:
@@ -291,7 +291,7 @@ export const treatments: Treatment[] = [
         a: 'Yes — it is commonly added on the same day as injectable or regenerative treatments to support the skin’s healing response.',
       },
     ],
-    heroImage: { src: '/images/site/led-therapy.jpg', alt: 'Client under the Dermalux Flex MD LED panel at Face Crease Police' },
+    heroImage: { src: '/images/site/led-therapy.jpg', alt: 'Client under the Dermalux Flex MD LED panel at Maison Aurelia' },
     badges: [{ src: '/images/dermalux.png', alt: 'Dermalux — Next Generation SkinTec' }],
   },
   {
@@ -302,7 +302,7 @@ export const treatments: Treatment[] = [
     goals: ['refine'],
     isPOM: false,
     summary: 'Collagen induction therapy using fine needles to improve texture, scarring, pores and fine lines.',
-    metaTitle: 'Micro-Needling & SkinPen in Hoylake, Wirral | Face Crease Police',
+    metaTitle: 'Micro-Needling & SkinPen in Hoylake, Wirral | Maison Aurelia',
     metaDescription:
       'Medical-grade micro-needling in Hoylake, Wirral to improve texture, scarring and fine lines by stimulating your skin’s own collagen production.',
     answer:

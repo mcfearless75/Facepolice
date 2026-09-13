@@ -1,4 +1,6 @@
-# Face Crease Police — Website
+# Maison Aurelia — Website
+
+_Formerly Face Crease Police — rebranded on the website layer; see `maison-aurelia-brand-kit.md` for the full identity and `fcp-rebuild-punch-list.md` for outstanding real-world rebrand items (domain, socials, registrations)._
 
 Rebuild of [facecreasepolice.com](https://facecreasepolice.com), a medically-led facial aesthetics
 clinic in Hoylake, Wirral. Built with [Astro](https://astro.build) + Tailwind CSS: static-generated,

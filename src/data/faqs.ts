@@ -1,7 +1,7 @@
 export const generalFaqs: { q: string; a: string }[] = [
   {
     q: 'Who will actually treat me?',
-    a: 'Every treatment at Face Crease Police is carried out by Jo, an Advanced Nurse Practitioner with Masters-level training and a non-medical prescribing qualification — not a beautician or non-clinical technician. Face Crease Police is a trade name of JOUP Clinical Services Limited.',
+    a: 'Every treatment at Maison Aurelia is carried out by Jo, an Advanced Nurse Practitioner with Masters-level training and a non-medical prescribing qualification — not a beautician or non-clinical technician. Maison Aurelia is a trade name of JOUP Clinical Services Limited.',
   },
   {
     q: 'Do I need a consultation before booking treatment?',
@@ -9,7 +9,7 @@ export const generalFaqs: { q: string; a: string }[] = [
   },
   {
     q: 'Where is the clinic based?',
-    a: 'Face Crease Police is based in Hoylake on the Wirral, easily reached from West Kirby, Moreton, Birkenhead, Wallasey, Chester and Liverpool.',
+    a: 'Maison Aurelia is based in Hoylake on the Wirral, easily reached from West Kirby, Moreton, Birkenhead, Wallasey, Chester and Liverpool.',
   },
   {
     q: 'How much do treatments cost?',

@@ -5,13 +5,13 @@ import Logomark from '@/components/Logomark.astro';
 const path = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 border-b border-black/5 bg-porcelain-50/90 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-black/5 bg-ivory-50/90 backdrop-blur">
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-8">
     <a href="/" class="flex items-center gap-3">
       <Logomark class="h-9 w-9 shrink-0" />
       <span class="flex flex-col leading-none">
-        <span class="font-display text-lg font-semibold tracking-tight text-ink-900">{site.name}</span>
-        <span class="text-[11px] font-medium uppercase tracking-[0.18em] text-gold-600">Hoylake &middot; Wirral</span>
+        <span class="font-logotype text-xl uppercase tracking-[0.08em] text-emerald-900">{site.name}</span>
+        <span class="mt-0.5 text-[11px] font-medium uppercase tracking-[0.18em] text-aurelia-600">Hoylake &middot; Wirral</span>
       </span>
     </a>
 
@@ -20,10 +20,10 @@ const path = Astro.url.pathname;
         <a
           href={link.href}
           class:list={[
-            'nav-underline pb-0.5 text-sm font-medium transition-colors duration-300 hover:text-ink-900',
+            'nav-underline pb-0.5 text-sm font-medium transition-colors duration-300 hover:text-emerald-900',
             path === link.href || path === link.href.slice(0, -1)
-              ? 'text-ink-900'
-              : 'text-ink-900/60',
+              ? 'text-emerald-900'
+              : 'text-emerald-900/60',
           ]}
         >
           {link.label}
@@ -33,7 +33,7 @@ const path = Astro.url.pathname;
 
     <a
       href="/contact/"
-      class="hidden shrink-0 rounded-full bg-ink-900 px-5 py-2.5 text-sm font-semibold text-porcelain-50 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink-800 hover:shadow-lg lg:inline-flex"
+      class="hidden shrink-0 rounded-full bg-emerald-900 px-5 py-2.5 text-sm font-semibold text-ivory-50 shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-lg lg:inline-flex"
     >
       Book a Consultation
     </a>
@@ -41,7 +41,7 @@ const path = Astro.url.pathname;
     <input type="checkbox" id="nav-toggle" class="peer hidden" aria-hidden="true" />
     <label
       for="nav-toggle"
-      class="grid h-10 w-10 place-items-center rounded-full border border-ink-900/10 text-ink-900 lg:hidden"
+      class="grid h-10 w-10 place-items-center rounded-full border border-emerald-900/10 text-emerald-900 lg:hidden"
       aria-label="Toggle menu"
     >
       <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -50,18 +50,18 @@ const path = Astro.url.pathname;
     </label>
 
     <div
-      class="fixed inset-x-0 top-[61px] z-40 hidden max-h-[calc(100vh-61px)] overflow-y-auto border-b border-black/5 bg-porcelain-50 px-5 pb-8 pt-4 shadow-soft peer-checked:block lg:hidden"
+      class="fixed inset-x-0 top-[61px] z-40 hidden max-h-[calc(100vh-61px)] overflow-y-auto border-b border-black/5 bg-ivory-50 px-5 pb-8 pt-4 shadow-soft peer-checked:block lg:hidden"
     >
       <nav class="flex flex-col gap-1" aria-label="Mobile">
         {primaryNav.map((link) => (
-          <a href={link.href} class="rounded-lg px-3 py-3 text-base font-medium text-ink-900 hover:bg-ink-900/5">
+          <a href={link.href} class="rounded-lg px-3 py-3 text-base font-medium text-emerald-900 hover:bg-emerald-900/5">
             {link.label}
           </a>
         ))}
       </nav>
       <a
         href="/contact/"
-        class="mt-4 block rounded-full bg-ink-900 px-5 py-3 text-center text-sm font-semibold text-porcelain-50"
+        class="mt-4 block rounded-full bg-emerald-900 px-5 py-3 text-center text-sm font-semibold text-ivory-50"
       >
         Book a Consultation
       </a>

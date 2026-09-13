@@ -30,7 +30,7 @@ const { title, description, path, image, noindex, schema = [] } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Cinzel:wght@400;500;600;700;800;900&family=Jost:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
@@ -39,8 +39,8 @@ const { title, description, path, image, noindex, schema = [] } = Astro.props;
     {schema.map((s) => <JsonLd data={s} />)}
     <ViewTransitions />
   </head>
-  <body class="bg-porcelain-50 font-sans text-ink-900 antialiased">
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[999] focus:rounded focus:bg-ink-900 focus:px-4 focus:py-2 focus:text-porcelain-50">
+  <body class="bg-ivory-50 font-sans text-emerald-900 antialiased">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[999] focus:rounded focus:bg-emerald-900 focus:px-4 focus:py-2 focus:text-ivory-50">
       Skip to content
     </a>
     <Header />
