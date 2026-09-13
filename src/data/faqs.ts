@@ -23,4 +23,16 @@ export const generalFaqs: { q: string; a: string }[] = [
     q: 'Is facial aesthetic treatment safe?',
     a: 'All treatment is delivered by a qualified prescriber following a full clinical assessment, using regulated products and equipment. As with any medical procedure, risks are discussed individually and treatment is only carried out where it is clinically appropriate.',
   },
+  {
+    q: 'How do I book a consultation?',
+    a: 'Send a message through the contact form or email the clinic directly — Jo replies personally to arrange a time that suits you.',
+  },
+  {
+    q: 'Do you treat male clients?',
+    a: 'Yes — facial aesthetic treatment is for anyone who wants it, and every consultation is approached the same way regardless of who it’s for.',
+  },
+  {
+    q: "I've never had any treatment before — where do I start?",
+    a: 'Start with a consultation, not a treatment booking. Jo will talk through your goals and recommend a conservative starting point — the Goal Finder on this site is also a good way to explore your options first.',
+  },
 ];

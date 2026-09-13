@@ -57,6 +57,14 @@ export const treatments: Treatment[] = [
         q: 'Does it hurt?',
         a: 'Most clients describe it as a series of brief scratches. A fine needle and slow technique are used throughout to keep the appointment comfortable.',
       },
+      {
+        q: 'How soon can I go back to normal activities?',
+        a: 'Immediately — there’s no downtime, though it’s best to avoid strenuous exercise, alcohol and lying flat for a few hours afterwards, as covered in your written aftercare advice.',
+      },
+      {
+        q: "What happens if I'm not happy with the result?",
+        a: 'Effects settle fully within around two weeks. Any concerns are discussed at your review, and future sessions are adjusted based on how you responded.',
+      },
     ],
     heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
@@ -99,6 +107,14 @@ export const treatments: Treatment[] = [
       {
         q: 'What is dermal filler made from?',
         a: 'Hyaluronic acid — a sugar molecule that occurs naturally in skin and holds water, giving structure and hydration. It is fully dissolvable if ever needed.',
+      },
+      {
+        q: 'Can dermal filler be dissolved if I change my mind?',
+        a: 'Yes — hyaluronic acid filler can be dissolved with an enzyme (hyaluronidase) if ever needed, which is one reason it’s considered a safer starting point than permanent fillers.',
+      },
+      {
+        q: 'How soon will I see the final result?',
+        a: "You'll see volume and shape immediately, but allow around two weeks for any swelling to fully settle before judging the final result.",
       },
     ],
     heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
@@ -143,6 +159,14 @@ export const treatments: Treatment[] = [
         q: 'How many sessions will I need?',
         a: 'Most concerns respond well to a course of 2–4 sessions. This is agreed and tailored at your consultation based on your skin and goals.',
       },
+      {
+        q: 'Is there any downtime?',
+        a: 'Mild swelling or small bumps at injection points can occur, usually settling within 24–48 hours. Most clients return to normal activities the same day.',
+      },
+      {
+        q: 'Can polynucleotides be combined with dermal filler?',
+        a: 'Yes — many clients use polynucleotides to improve skin quality alongside filler for volume, as part of a combined plan agreed at consultation.',
+      },
     ],
     heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
@@ -179,6 +203,14 @@ export const treatments: Treatment[] = [
       {
         q: 'Can skin boosters be combined with other treatments?',
         a: 'Yes — skin boosters are often paired with polynucleotides or LED therapy as part of a wider skin quality plan, agreed at consultation.',
+      },
+      {
+        q: 'How is a skin booster different from dermal filler?',
+        a: 'Filler adds volume and structure in a specific area. Skin boosters spread small amounts of hyaluronic acid evenly to hydrate and improve overall skin quality rather than change shape.',
+      },
+      {
+        q: 'How long before I see results?',
+        a: 'Skin begins to look more hydrated within a week or two, with the full effect building across a recommended course of sessions.',
       },
     ],
     heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
@@ -217,6 +249,14 @@ export const treatments: Treatment[] = [
         q: 'Why choose a biostimulator over filler?',
         a: 'Biostimulators work with your own collagen for a gradual, longer-lasting improvement in facial structure, rather than an immediate volumising effect. Which is right for you is discussed at consultation.',
       },
+      {
+        q: 'Is there downtime with biostimulator treatment?',
+        a: 'Mild swelling is possible for a few days, but most clients return to normal activities straight away.',
+      },
+      {
+        q: 'How many sessions are typically needed?',
+        a: 'Most treatment plans involve 2–3 sessions spaced 4–6 weeks apart, tailored to your goals at consultation.',
+      },
     ],
     heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
   },
@@ -252,6 +292,14 @@ export const treatments: Treatment[] = [
       {
         q: 'Is it painful?',
         a: 'The area is usually numbed first. Swelling and a tight, tender sensation for several days afterwards is normal and expected.',
+      },
+      {
+        q: 'How many sessions will I need to see a difference?',
+        a: 'Most clients need a course of 2–4 sessions spaced around 4–6 weeks apart, with visible reduction building gradually after each one.',
+      },
+      {
+        q: 'Will the fat come back?',
+        a: 'The fat cells broken down by treatment are cleared by the body permanently. Significant weight gain afterwards can still affect the area, as it can anywhere else on the body.',
       },
     ],
     heroImage: { src: '/images/site/hero-injection.jpg', alt: 'Jo administering an injectable treatment in clinic' },
@@ -290,6 +338,14 @@ export const treatments: Treatment[] = [
         q: 'Can LED be added to another appointment?',
         a: 'Yes — it is commonly added on the same day as injectable or regenerative treatments to support the skin’s healing response.',
       },
+      {
+        q: 'Is LED light therapy safe for sensitive or acne-prone skin?',
+        a: "Yes — it's non-invasive with no downtime, and is often used specifically to calm inflammation and support healing in sensitive or acne-prone skin.",
+      },
+      {
+        q: 'How many sessions will I need?',
+        a: 'It depends on the concern — a single session can support recovery after another treatment, while ongoing skin concerns benefit from a regular course.',
+      },
     ],
     heroImage: { src: '/images/site/led-therapy.jpg', alt: 'Client under the Dermalux Flex MD LED panel at Maison Aurelia' },
     badges: [{ src: '/images/dermalux.png', alt: 'Dermalux — Next Generation SkinTec' }],
@@ -327,6 +383,14 @@ export const treatments: Treatment[] = [
       {
         q: 'Is micro-needling suitable for all skin types?',
         a: 'It suits most skin types and tones, though it is assessed individually — active infections, certain skin conditions or recent isotretinoin use may mean postponing treatment.',
+      },
+      {
+        q: 'How much downtime is there?',
+        a: 'Expect redness similar to mild sunburn for 24–48 hours. Make-up can usually be worn again the next day.',
+      },
+      {
+        q: 'How does it help acne scarring?',
+        a: 'The controlled micro-injuries trigger new collagen production, which gradually softens the appearance of textural scarring over a course of sessions.',
       },
     ],
     badges: [
