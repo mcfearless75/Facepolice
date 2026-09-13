@@ -27,7 +27,7 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Fraunces"', 'ui-serif', 'Georgia', 'serif'],
+        display: ['"Bodoni Moda"', 'ui-serif', 'Didot', 'Georgia', 'serif'],
         sans: ['"Inter"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
