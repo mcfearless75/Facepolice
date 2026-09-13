@@ -1,0 +1,169 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { site } from '@/data/site';
+import { treatments } from '@/data/treatments';
+import { breadcrumbSchema } from '@/data/schema';
+
+const mapQuery = encodeURIComponent(`${site.addressLocality}, ${site.addressRegion}, UK`);
+const thankYouUrl = new URL('/contact/thank-you/', site.url).toString();
+---
+
+<Layout
+  title="Contact & Book a Consultation | Maison Aurelia Hoylake"
+  description="Get in touch with Maison Aurelia in Hoylake, Wirral to book a consultation with Advanced Nurse Practitioner Jo."
+  path="/contact/"
+  schema={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])]}
+>
+  <section class="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-2" data-reveal="stagger">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600">Get in touch</span>
+        <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-emerald-900 sm:text-5xl">Book a consultation</h1>
+        <p class="mt-5 text-lg leading-relaxed text-emerald-900/70">
+          Every new client starts with a consultation, not a treatment slot. Send a few details below and
+          Jo will reply personally to arrange a time.
+        </p>
+
+        <dl class="mt-10 space-y-6">
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.1em] text-emerald-900/50">Location</dt>
+            <dd class="mt-1 font-display text-lg font-semibold text-emerald-900">{site.addressLocality}, {site.addressRegion}</dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.1em] text-emerald-900/50">Email</dt>
+            <dd class="mt-1"><a href={`mailto:${site.email}`} class="font-display text-lg font-semibold text-emerald-900 hover:text-aurelia-600">{site.email}</a></dd>
+          </div>
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.1em] text-emerald-900/50">Follow along</dt>
+            <dd class="mt-2 flex gap-3">
+              {site.social.facebook && (
+                <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" class="rounded-full border border-emerald-900/15 px-4 py-2 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-900/40 hover:shadow-sm">Facebook</a>
+              )}
+              {site.social.tiktok && (
+                <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer" class="rounded-full border border-emerald-900/15 px-4 py-2 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-900/40 hover:shadow-sm">TikTok</a>
+              )}
+            </dd>
+          </div>
+        </dl>
+
+        <div class="mt-10 aspect-video w-full overflow-hidden rounded-2xl border border-emerald-900/10">
+          <iframe
+            title="Map showing Hoylake, Wirral"
+            class="h-full w-full"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-emerald-900/10 bg-white p-7 shadow-soft sm:p-9" data-contact-card>
+        <h2 class="font-display text-xl font-semibold text-emerald-900">Enquiry form</h2>
+        <p class="mt-2 text-sm text-emerald-900/60">Sent straight to the clinic — no email client required.</p>
+
+        <form
+          action={`https://formsubmit.co/${site.email}`}
+          method="POST"
+          class="mt-6 space-y-5"
+          data-contact-form
+        >
+          <input type="hidden" name="_subject" value="New enquiry from facecreasepolice.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value={thankYouUrl} />
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div>
+            <label for="name" class="text-sm font-semibold text-emerald-900">Name</label>
+            <input id="name" name="name" required placeholder="Your name" class="mt-2 w-full rounded-xl border border-emerald-900/15 px-4 py-3 text-sm focus:border-emerald-900 focus:outline-none" />
+          </div>
+          <div>
+            <label for="email" class="text-sm font-semibold text-emerald-900">Your email</label>
+            <input id="email" type="email" name="email" required placeholder="you@email.com" class="mt-2 w-full rounded-xl border border-emerald-900/15 px-4 py-3 text-sm focus:border-emerald-900 focus:outline-none" />
+          </div>
+          <div>
+            <label for="phone" class="text-sm font-semibold text-emerald-900">Phone <span class="font-normal text-emerald-900/50">(optional)</span></label>
+            <input id="phone" type="tel" name="phone" placeholder="07…" class="mt-2 w-full rounded-xl border border-emerald-900/15 px-4 py-3 text-sm focus:border-emerald-900 focus:outline-none" />
+          </div>
+          <div>
+            <label for="interest" class="text-sm font-semibold text-emerald-900">What are you interested in? <span class="font-normal text-emerald-900/50">(optional)</span></label>
+            <select id="interest" name="treatment_interest" class="mt-2 w-full rounded-xl border border-emerald-900/15 bg-white px-4 py-3 text-sm focus:border-emerald-900 focus:outline-none">
+              <option value="">Not sure yet</option>
+              {treatments.map((t) => <option value={t.name}>{t.name}</option>)}
+            </select>
+          </div>
+          <div>
+            <label for="message" class="text-sm font-semibold text-emerald-900">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Tell us a little about what you'd like to discuss" class="mt-2 w-full rounded-xl border border-emerald-900/15 px-4 py-3 text-sm focus:border-emerald-900 focus:outline-none"></textarea>
+          </div>
+          <button type="submit" class="w-full rounded-full bg-emerald-900 px-6 py-3.5 text-sm font-semibold text-ivory-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-lg" data-contact-submit>
+            Send Enquiry
+          </button>
+          <p class="text-center text-xs text-emerald-900/50">
+            Prefer email directly? Write to <a href={`mailto:${site.email}`} class="font-semibold text-emerald-900 underline">{site.email}</a>.
+          </p>
+        </form>
+
+        <div class="hidden text-center" data-contact-success>
+          <p class="font-display text-xl font-semibold text-emerald-900">Thank you — we've got it.</p>
+          <p class="mt-2 text-sm leading-relaxed text-emerald-900/65">
+            {site.practitioner.name} replies personally to every enquiry, usually within a day or two.
+          </p>
+        </div>
+
+        <p class="mt-4 hidden text-center text-sm text-red-700" data-contact-error>
+          Something went wrong sending that — please email
+          <a href={`mailto:${site.email}`} class="font-semibold underline">{site.email}</a> directly instead.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    function initContactForm() {
+      var forms = document.querySelectorAll('[data-contact-form]:not([data-contact-init])');
+      forms.forEach(function (form) {
+        form.setAttribute('data-contact-init', 'true');
+        var card = form.closest('[data-contact-card]');
+        var success = card.querySelector('[data-contact-success]');
+        var error = card.querySelector('[data-contact-error]');
+        var submitBtn = form.querySelector('[data-contact-submit]');
+
+        form.addEventListener('submit', function (e) {
+          // Honeypot tripped — silently drop instead of submitting.
+          var honey = form.querySelector('input[name="_honey"]');
+          if (honey && honey.value) {
+            e.preventDefault();
+            return;
+          }
+
+          e.preventDefault();
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+          error.classList.add('hidden');
+
+          var action = form.getAttribute('action').replace('formsubmit.co/', 'formsubmit.co/ajax/');
+          var data = new FormData(form);
+
+          fetch(action, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: data,
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error('Request failed');
+              form.classList.add('hidden');
+              success.classList.remove('hidden');
+            })
+            .catch(function () {
+              // AJAX endpoint failed — fall back to a real (non-JS) form
+              // submission so the enquiry still goes through via redirect.
+              // form.submit() doesn't re-fire the 'submit' event, so this
+              // can't loop back into this same handler.
+              form.submit();
+            });
+        });
+      });
+    }
+    document.addEventListener('astro:page-load', initContactForm);
+  </script>
+</Layout>

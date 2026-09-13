@@ -1,0 +1,84 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { site } from '@/data/site';
+import { breadcrumbSchema } from '@/data/schema';
+---
+
+<Layout
+  title={`About ${site.practitioner.name} | Maison Aurelia Hoylake`}
+  description={`Meet ${site.practitioner.name}, the ${site.practitioner.role} behind Maison Aurelia in Hoylake, Wirral.`}
+  path="/about/"
+  schema={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])]}
+>
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:items-start">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600">About</span>
+        <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-emerald-900 sm:text-5xl">
+          Clinical training first. Aesthetics second.
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-emerald-900/70">
+          {site.name} is led by {site.practitioner.name}, an {site.practitioner.role}. {site.practitioner.credentials}
+        </p>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-3 lg:grid-cols-1 lg:gap-4">
+          {[
+            ['Masters-level training', 'Advanced clinical assessment skills that go beyond standard aesthetic courses.'],
+            ['Independent prescriber', 'Qualified to prescribe and administer prescription-only medicines directly.'],
+            ['NMC registered', 'Regulated and accountable to the Nursing & Midwifery Council at all times.'],
+          ].map(([title, desc]) => (
+            <div class="rounded-2xl border border-emerald-900/10 bg-white p-6 lg:flex lg:items-baseline lg:gap-4 lg:p-5">
+              <h3 class="font-display text-lg font-semibold text-emerald-900 lg:w-56 lg:shrink-0">{title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-emerald-900/65 lg:mt-0">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="overflow-hidden rounded-[2rem] shadow-soft">
+        <img
+          src="/images/site/about-jo.jpg"
+          alt={`${site.practitioner.name}, ${site.practitioner.role}, in the Maison Aurelia treatment room`}
+          width="1200"
+          height="1600"
+          class="h-full w-full object-cover"
+          loading="eager"
+        />
+      </div>
+    </div>
+
+    <div class="mt-16 overflow-hidden rounded-[2rem] shadow-soft" data-reveal>
+      <img
+        src="/images/site/clinic-room.jpg"
+        alt="Inside the Maison Aurelia treatment room in Hoylake, Wirral"
+        width="1800"
+        height="1350"
+        class="h-full w-full object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="prose-clinic mx-auto mt-14 max-w-3xl" data-reveal>
+      <h2>Why {site.name}?</h2>
+      <p>
+        <em>Maison</em> — house. <em>Aurelia</em> — golden. Gold doesn't fade, rust or perish; it's simply
+        protected, polished, preserved. That's the idea behind the name: skin doesn't need to be chased into
+        something artificial. It needs to be protected, preserved, and given back its own shine — which is
+        exactly what a proper clinical assessment, not a sales script, is built to do.
+      </p>
+      <p>
+        As a nurse prescriber, {site.practitioner.name} works from clinical judgement rather than a treatment menu.
+        That means an honest opinion on what will and won't make a visible difference, a conservative approach to
+        dosing and product, and treatment plans that are reviewed and adjusted — not sold as a one-off transaction.
+      </p>
+      <h2>Trading name</h2>
+      <p>
+        {site.name} is a trade name of {site.legalName}, registered in England &amp; Wales. All clinical
+        responsibility for treatment sits with {site.practitioner.name} as the treating prescriber.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

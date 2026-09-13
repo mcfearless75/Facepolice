@@ -1,0 +1,42 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = 'h-9 w-9' } = Astro.props;
+
+// Sunburst rays, evenly spaced, drawn from the inner ring out to near the
+// outer edge — a classic art deco medallion motif.
+const rayCount = 16;
+const rays = Array.from({ length: rayCount }, (_, i) => {
+  const angle = (i / rayCount) * Math.PI * 2;
+  const inner = 37;
+  const outer = 46;
+  return {
+    x1: 50 + inner * Math.cos(angle),
+    y1: 50 + inner * Math.sin(angle),
+    x2: 50 + outer * Math.cos(angle),
+    y2: 50 + outer * Math.sin(angle),
+  };
+});
+---
+
+<svg viewBox="0 0 100 100" class={className} aria-hidden="true">
+  <circle cx="50" cy="50" r="48" fill="#0B3D2E" stroke="#C9A227" stroke-width="1.5" />
+  <g stroke="#C9A227" stroke-width="1" opacity="0.55">
+    {rays.map((r) => (
+      <line x1={r.x1} y1={r.y1} x2={r.x2} y2={r.y2} />
+    ))}
+  </g>
+  <circle cx="50" cy="50" r="36" fill="none" stroke="#C9A227" stroke-width="1" />
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#C9A227" stroke-width="0.5" opacity="0.6" />
+  <text
+    x="50"
+    y="59"
+    text-anchor="middle"
+    font-family="'Cinzel', serif"
+    font-size="27"
+    font-weight="600"
+    letter-spacing="1"
+    fill="#C9A227"
+  >MA</text>
+</svg>

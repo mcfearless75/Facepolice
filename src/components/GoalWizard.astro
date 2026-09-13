@@ -1,0 +1,216 @@
+---
+// A short, non-clinical quiz that narrows stated concerns down to one of the
+// four goal categories, then hands off to a consultation. It never names a
+// treatment as "needed" and never diagnoses — see the disclaimer in each
+// result panel. All copy/scoring lives in src/data/wizard.ts.
+import { wizardQuestions } from '@/data/wizard';
+import { goals } from '@/data/goals';
+import { treatments } from '@/data/treatments';
+---
+
+<div
+  class="mx-auto max-w-2xl rounded-3xl border border-emerald-900/10 bg-white p-6 shadow-soft sm:p-10"
+  data-wizard
+>
+  <div class="flex items-center gap-2" data-wizard-dots>
+    {wizardQuestions.map(() => (
+      <span class="h-1.5 flex-1 rounded-full bg-emerald-900/10 transition-colors duration-300" data-dot></span>
+    ))}
+  </div>
+  <p class="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600" data-wizard-label>
+    Question 1 of {wizardQuestions.length}
+  </p>
+
+  {wizardQuestions.map((q, i) => (
+    <div class="mt-4" data-step={i} hidden={i !== 0}>
+      <h3 class="font-display text-xl font-semibold text-emerald-900 sm:text-2xl">{q.question}</h3>
+      <div class="mt-6 grid gap-3" role="radiogroup" aria-label={q.question}>
+        {q.options.map((opt) => (
+          <button
+            type="button"
+            class="wizard-option rounded-2xl border border-emerald-900/15 px-5 py-4 text-left text-sm font-medium text-emerald-900 transition-all duration-300 hover:border-aurelia-400/50 hover:bg-aurelia-400/5 sm:text-base"
+            data-scores={JSON.stringify(opt.scores)}
+            role="radio"
+            aria-checked="false"
+          >
+            {opt.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  ))}
+
+  <div class="mt-8" data-wizard-controls hidden>
+    <button type="button" class="text-sm font-semibold text-emerald-900/60 transition-colors hover:text-emerald-900" data-wizard-back>
+      &larr; Back
+    </button>
+  </div>
+
+  {goals.map((goal) => {
+    const matched = treatments.filter((t) => t.goals.includes(goal.slug));
+    return (
+      <div class="wizard-result" data-result={goal.slug} hidden>
+        <span class="text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600">Based on your answers</span>
+        <h3 class="mt-3 font-display text-2xl font-semibold text-emerald-900 sm:text-3xl">{goal.name}</h3>
+        <p class="mt-1 font-medium text-aurelia-600">{goal.strapline}</p>
+        <p class="mt-4 text-sm leading-relaxed text-emerald-900/70 sm:text-base">{goal.description}</p>
+
+        <p class="mt-6 text-xs font-semibold uppercase tracking-[0.14em] text-emerald-900/50">
+          Treatments clients in this group often start with
+        </p>
+        <ul class="mt-3 grid gap-2 sm:grid-cols-2">
+          {matched.map((t) => (
+            <li>
+              <a
+                href={`/treatments/${t.slug}/`}
+                class="block rounded-xl border border-emerald-900/10 px-4 py-3 text-sm font-semibold text-emerald-900 transition-colors duration-300 hover:border-aurelia-400/40 hover:bg-aurelia-400/5"
+              >
+                {t.shortName}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <p class="mt-6 text-xs leading-relaxed text-emerald-900/50">
+          This is a starting point, not a diagnosis or a prescription — your actual plan is always
+          confirmed by Jo at a face-to-face consultation.
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <a href="/contact/" class="btn-dark">Book a Consultation</a>
+          <a href={`/goals/${goal.slug}/`} class="btn-outline">More on {goal.name}</a>
+          <button type="button" class="text-sm font-semibold text-emerald-900/60 transition-colors hover:text-emerald-900" data-wizard-restart>
+            Start over
+          </button>
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+<script is:inline>
+  function initGoalWizard() {
+    var wizards = document.querySelectorAll('[data-wizard]:not([data-wizard-init])');
+    wizards.forEach(function (wizard) {
+      wizard.setAttribute('data-wizard-init', 'true');
+
+      var steps = Array.prototype.slice.call(wizard.querySelectorAll('[data-step]'));
+      var results = Array.prototype.slice.call(wizard.querySelectorAll('[data-result]'));
+      var dots = Array.prototype.slice.call(wizard.querySelectorAll('[data-dot]'));
+      var controls = wizard.querySelector('[data-wizard-controls]');
+      var backBtn = wizard.querySelector('[data-wizard-back]');
+      var label = wizard.querySelector('[data-wizard-label]');
+      var total = steps.length;
+      var current = 0;
+      var answers = new Array(total).fill(null);
+
+      function updateDots() {
+        dots.forEach(function (dot, i) {
+          dot.classList.remove('bg-emerald-900/10', 'bg-emerald-900', 'bg-aurelia-400');
+          if (i < current) dot.classList.add('bg-aurelia-400');
+          else if (i === current) dot.classList.add('bg-emerald-900');
+          else dot.classList.add('bg-emerald-900/10');
+        });
+      }
+
+      function showStep(index) {
+        steps.forEach(function (step, i) {
+          step.hidden = i !== index;
+        });
+        results.forEach(function (r) {
+          r.hidden = true;
+        });
+        controls.hidden = index === 0;
+        label.textContent = 'Question ' + (index + 1) + ' of ' + total;
+        updateDots();
+      }
+
+      function selectOption(step, button) {
+        var options = step.querySelectorAll('[data-scores]');
+        options.forEach(function (opt) {
+          var selected = opt === button;
+          opt.setAttribute('aria-checked', selected ? 'true' : 'false');
+          opt.classList.toggle('border-emerald-900', selected);
+          opt.classList.toggle('bg-emerald-900', selected);
+          opt.classList.toggle('text-ivory-50', selected);
+          opt.classList.toggle('border-emerald-900/15', !selected);
+        });
+      }
+
+      function showResult() {
+        var totals = {};
+        answers.forEach(function (scores) {
+          if (!scores) return;
+          Object.keys(scores).forEach(function (goal) {
+            totals[goal] = (totals[goal] || 0) + scores[goal];
+          });
+        });
+        var winner = null;
+        var best = -Infinity;
+        results.forEach(function (r) {
+          var slug = r.getAttribute('data-result');
+          var score = totals[slug] || 0;
+          if (score > best) {
+            best = score;
+            winner = slug;
+          }
+        });
+        steps.forEach(function (step) {
+          step.hidden = true;
+        });
+        controls.hidden = true;
+        results.forEach(function (r) {
+          r.hidden = r.getAttribute('data-result') !== winner;
+        });
+        wizard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      steps.forEach(function (step, i) {
+        var options = step.querySelectorAll('[data-scores]');
+        options.forEach(function (button) {
+          button.addEventListener('click', function () {
+            selectOption(step, button);
+            answers[i] = JSON.parse(button.getAttribute('data-scores'));
+            window.setTimeout(function () {
+              if (i === total - 1) {
+                showResult();
+              } else {
+                current = i + 1;
+                showStep(current);
+              }
+            }, 220);
+          });
+        });
+      });
+
+      backBtn.addEventListener('click', function () {
+        if (current === 0) return;
+        current -= 1;
+        showStep(current);
+      });
+
+      results.forEach(function (r) {
+        var restartBtn = r.querySelector('[data-wizard-restart]');
+        if (!restartBtn) return;
+        restartBtn.addEventListener('click', function () {
+          answers = new Array(total).fill(null);
+          current = 0;
+          steps.forEach(function (step) {
+            var options = step.querySelectorAll('[data-scores]');
+            options.forEach(function (opt) {
+              opt.setAttribute('aria-checked', 'false');
+              opt.classList.remove('border-emerald-900', 'bg-emerald-900', 'text-ivory-50');
+              opt.classList.add('border-emerald-900/15');
+            });
+          });
+          showStep(0);
+          wizard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      updateDots();
+    });
+  }
+
+  document.addEventListener('astro:page-load', initGoalWizard);
+</script>

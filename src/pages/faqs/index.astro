@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import FaqAccordion from '@/components/FaqAccordion.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { generalFaqs } from '@/data/faqs';
+import { treatments } from '@/data/treatments';
+import { breadcrumbSchema, faqSchema } from '@/data/schema';
+
+const allFaqs = [...generalFaqs, ...treatments.flatMap((t) => t.faqs)];
+---
+
+<Layout
+  title="FAQs | Maison Aurelia Hoylake"
+  description="Answers to common questions about consultations, safety, aftercare and treatments at Maison Aurelia in Hoylake, Wirral."
+  path="/faqs/"
+  schema={[
+    breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'FAQs', path: '/faqs/' }]),
+    faqSchema(allFaqs),
+  ]}
+>
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24" data-reveal>
+    <span class="text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600">FAQs</span>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-emerald-900 sm:text-5xl">Frequently asked questions</h1>
+    <p class="mt-5 text-lg leading-relaxed text-emerald-900/65">
+      General questions below — each treatment page also has questions specific to that treatment.
+    </p>
+    <div class="mt-10">
+      <FaqAccordion faqs={generalFaqs} />
+    </div>
+  </section>
+
+  <CtaBand heading="Still have a question?" body="Email the clinic directly and Jo will get back to you personally." />
+</Layout>

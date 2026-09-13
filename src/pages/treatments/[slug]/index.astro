@@ -1,0 +1,145 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import FaqAccordion from '@/components/FaqAccordion.astro';
+import TreatmentCard from '@/components/TreatmentCard.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { treatments } from '@/data/treatments';
+import { breadcrumbSchema, faqSchema, medicalProcedureSchema } from '@/data/schema';
+
+export function getStaticPaths() {
+  return treatments.map((t) => ({ params: { slug: t.slug }, props: { treatment: t } }));
+}
+
+const { treatment } = Astro.props;
+const related = treatments.filter((t) => t.slug !== treatment.slug && t.category === treatment.category).slice(0, 3);
+const fallbackRelated = related.length ? related : treatments.filter((t) => t.slug !== treatment.slug).slice(0, 3);
+---
+
+<Layout
+  title={treatment.metaTitle}
+  description={treatment.metaDescription}
+  path={`/treatments/${treatment.slug}/`}
+  schema={[
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Treatments', path: '/treatments/' },
+      { name: treatment.name, path: `/treatments/${treatment.slug}/` },
+    ]),
+    medicalProcedureSchema({
+      name: treatment.name,
+      description: treatment.metaDescription,
+      path: `/treatments/${treatment.slug}/`,
+      isPOM: treatment.isPOM,
+    }),
+    faqSchema(treatment.faqs),
+  ]}
+>
+  <section class="border-b border-emerald-900/10 bg-white">
+    <div class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+      <nav class="text-xs text-emerald-900/50">
+        <a href="/treatments/" class="hover:text-emerald-900">Treatments</a> / {treatment.name}
+      </nav>
+      <span class="mt-4 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600">{treatment.category}</span>
+      <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-emerald-900 sm:text-5xl">{treatment.name}</h1>
+      <p class="mt-6 text-lg leading-relaxed text-emerald-900/70">{treatment.answer}</p>
+
+      {treatment.isPOM && (
+        <div class="mt-6 rounded-xl border border-aurelia-500/30 bg-aurelia-400/10 p-4 text-sm leading-relaxed text-emerald-900/80">
+          <strong class="font-semibold">Prescription-only medicine:</strong> this treatment can only be
+          provided following a face-to-face consultation confirming it is clinically appropriate for you.
+          We don't advertise pricing or offers for this treatment, in line with UK advertising rules for
+          medical treatments.
+        </div>
+      )}
+
+      <a href="/contact/" class="btn-dark mt-8">
+        Enquire About {treatment.shortName}
+      </a>
+
+      {treatment.badges && (
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-emerald-900/10 pt-6">
+          {treatment.badges.map((badge) => (
+            <img src={badge.src} alt={badge.alt} class="h-7 w-auto object-contain opacity-90" loading="lazy" />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  {treatment.heroImage && (
+    <section class="border-b border-emerald-900/10 bg-white">
+      <div class="mx-auto max-w-5xl px-5 pb-16 sm:px-8">
+        <div class="overflow-hidden rounded-[2rem] shadow-soft">
+          <img
+            src={treatment.heroImage.src}
+            alt={treatment.heroImage.alt}
+            width="1800"
+            height="1000"
+            class="h-full max-h-[520px] w-full object-cover"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="mx-auto grid max-w-4xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[2fr_1fr]" data-reveal>
+    <div>
+      <h2 class="font-display text-2xl font-semibold text-emerald-900">How it works</h2>
+      <ol class="mt-6 space-y-5">
+        {treatment.howItWorks.map((step, i) => (
+          <li class="flex gap-4">
+            <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-emerald-900 text-sm font-semibold text-ivory-50">{i + 1}</span>
+            <p class="text-sm leading-relaxed text-emerald-900/70 sm:text-base">{step}</p>
+          </li>
+        ))}
+      </ol>
+
+      <h2 class="mt-12 font-display text-2xl font-semibold text-emerald-900">Who it's ideal for</h2>
+      <ul class="mt-6 space-y-3">
+        {treatment.idealFor.map((item) => (
+          <li class="flex gap-3 text-sm leading-relaxed text-emerald-900/70 sm:text-base">
+            <svg class="mt-1 h-4 w-4 shrink-0 text-aurelia-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <h2 class="mt-12 font-display text-2xl font-semibold text-emerald-900">Frequently asked</h2>
+      <div class="mt-6">
+        <FaqAccordion faqs={treatment.faqs} />
+      </div>
+    </div>
+
+    <aside class="h-fit rounded-2xl border border-emerald-900/10 bg-ivory-100/60 p-6">
+      <h3 class="font-display text-lg font-semibold text-emerald-900">What to expect</h3>
+      <dl class="mt-5 space-y-4">
+        {treatment.expect.map((item) => (
+          <div>
+            <dt class="text-xs font-semibold uppercase tracking-[0.1em] text-emerald-900/50">{item.label}</dt>
+            <dd class="mt-1 text-sm font-medium text-emerald-900">{item.value}</dd>
+          </div>
+        ))}
+      </dl>
+      <a
+        href="/contact/"
+        class="mt-6 block rounded-full bg-emerald-900 px-5 py-3 text-center text-sm font-semibold text-ivory-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-lg"
+      >
+        Book a Consultation
+      </a>
+    </aside>
+  </section>
+
+  <section class="border-t border-emerald-900/10 bg-ivory-100/60 py-16">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8" data-reveal>
+      <h2 class="font-display text-2xl font-semibold text-emerald-900">You might also consider</h2>
+      <div class="mt-6 grid gap-5 sm:grid-cols-3" data-reveal="stagger">
+        {fallbackRelated.map((t) => <TreatmentCard treatment={t} />)}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Layout>

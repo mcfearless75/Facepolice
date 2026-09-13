@@ -1,0 +1,21 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { site } from '@/data/site';
+---
+
+<Layout
+  title="Thank You | Maison Aurelia Hoylake"
+  description="Your enquiry has been sent to Maison Aurelia. Jo will reply personally to arrange your consultation."
+  path="/contact/thank-you/"
+  noindex={true}
+>
+  <section class="mx-auto max-w-xl px-5 py-24 text-center sm:px-8 sm:py-32">
+    <span class="text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600">Enquiry sent</span>
+    <h1 class="mt-3 font-display text-3xl font-semibold tracking-tight text-emerald-900 sm:text-4xl">Thank you — we've got it.</h1>
+    <p class="mt-5 text-lg leading-relaxed text-emerald-900/70">
+      Your message has been sent through to the clinic. {site.practitioner.name} replies personally to every
+      enquiry, usually within a day or two.
+    </p>
+    <a href="/" class="btn-dark mt-8 inline-flex">Back to Home</a>
+  </section>
+</Layout>

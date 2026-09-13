@@ -1,0 +1,65 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { site } from '@/data/site';
+import { breadcrumbSchema } from '@/data/schema';
+---
+
+<Layout
+  title="Privacy Policy | Maison Aurelia Hoylake"
+  description="How Maison Aurelia (JOUP Clinical Services Limited) collects, uses and protects your personal data."
+  path="/privacy-policy/"
+  schema={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Privacy Policy', path: '/privacy-policy/' }])]}
+>
+  <section class="mx-auto max-w-3xl px-5 py-16 sm:px-8 sm:py-24">
+    <span class="text-xs font-semibold uppercase tracking-[0.14em] text-aurelia-600">Legal</span>
+    <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-emerald-900 sm:text-5xl">Privacy Policy</h1>
+    <p class="mt-4 text-sm text-emerald-900/50">Last updated: September 2026</p>
+
+    <div class="prose-clinic mt-10">
+      <p>
+        {site.legalName}, trading as {site.name} ("we", "us", "our"), is committed to protecting your privacy.
+        This policy explains what personal data we collect, why, and how it is used when you visit this website
+        or contact the clinic.
+      </p>
+
+      <h2>What we collect</h2>
+      <ul>
+        <li>Contact details you provide via email or our enquiry form, such as your name and email address.</li>
+        <li>Medical and treatment information you share with us directly during consultation, held securely as
+          part of your clinical record in line with our professional obligations.</li>
+        <li>Basic, non-identifying technical data (such as pages visited) if analytics are enabled on this site.</li>
+      </ul>
+
+      <h2>How we use it</h2>
+      <ul>
+        <li>To respond to enquiries and arrange consultations or appointments.</li>
+        <li>To maintain accurate clinical records, as required by professional regulation.</li>
+        <li>To meet our legal and regulatory obligations as a healthcare provider.</li>
+      </ul>
+
+      <h2>Data sharing</h2>
+      <p>
+        We do not sell personal data. Information is only shared where required by law, or with your explicit
+        consent — for example, if referring you to another healthcare professional.
+      </p>
+
+      <h2>Data retention</h2>
+      <p>
+        Clinical records are retained in line with professional and regulatory requirements for healthcare
+        providers. Enquiry information not leading to treatment is retained only as long as reasonably needed.
+      </p>
+
+      <h2>Your rights</h2>
+      <p>
+        Under UK GDPR, you have the right to access, correct or request deletion of your personal data, subject
+        to our clinical record-keeping obligations. To make a request, contact us at
+        {' '}<a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy can be sent to <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  heading?: string;
+  body?: string;
+}
+const {
+  heading = 'Ready to talk through your goals?',
+  body = 'Every treatment plan starts with a proper consultation — no pressure, no upselling, just an honest clinical assessment from Jo.',
+} = Astro.props;
+---
+
+<section class="bg-emerald-950">
+  <div class="mx-auto max-w-5xl px-5 py-16 text-center sm:px-8 sm:py-20" data-reveal="stagger">
+    <h2 class="font-display text-3xl font-semibold text-ivory-50 sm:text-4xl">{heading}</h2>
+    <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-ivory-100/70">{body}</p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a href="/contact/" class="btn-gold">
+        Book a Consultation
+      </a>
+      <a href="/treatments/" class="btn-ghost">
+        View All Treatments
+      </a>
+    </div>
+  </div>
+</section>
