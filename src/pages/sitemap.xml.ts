@@ -7,6 +7,7 @@ const staticPaths = [
   '/',
   '/treatments/',
   '/goals/',
+  '/goal-finder/',
   '/about/',
   '/results/',
   '/faqs/',
