@@ -36,8 +36,8 @@ const matched = treatments.filter((t) => t.goals.includes(goal.slug));
   </section>
 
   <section class="mx-auto max-w-7xl px-5 py-16 sm:px-8">
-    <h2 class="font-display text-2xl font-semibold text-ink-900">Treatments in this category</h2>
-    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <h2 class="font-display text-2xl font-semibold text-ink-900" data-reveal>Treatments in this category</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" data-reveal="stagger">
       {matched.map((t) => <TreatmentCard treatment={t} />)}
     </div>
   </section>

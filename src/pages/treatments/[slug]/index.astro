@@ -52,10 +52,7 @@ const fallbackRelated = related.length ? related : treatments.filter((t) => t.sl
         </div>
       )}
 
-      <a
-        href="/contact/"
-        class="mt-8 inline-flex items-center justify-center rounded-full bg-ink-900 px-7 py-3.5 text-sm font-semibold text-porcelain-50 shadow-soft transition hover:bg-ink-800"
-      >
+      <a href="/contact/" class="btn-dark mt-8">
         Enquire About {treatment.shortName}
       </a>
 
@@ -86,7 +83,7 @@ const fallbackRelated = related.length ? related : treatments.filter((t) => t.sl
     </section>
   )}
 
-  <section class="mx-auto grid max-w-4xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[2fr_1fr]">
+  <section class="mx-auto grid max-w-4xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[2fr_1fr]" data-reveal>
     <div>
       <h2 class="font-display text-2xl font-semibold text-ink-900">How it works</h2>
       <ol class="mt-6 space-y-5">
@@ -128,7 +125,7 @@ const fallbackRelated = related.length ? related : treatments.filter((t) => t.sl
       </dl>
       <a
         href="/contact/"
-        class="mt-6 block rounded-full bg-ink-900 px-5 py-3 text-center text-sm font-semibold text-porcelain-50 hover:bg-ink-800"
+        class="mt-6 block rounded-full bg-ink-900 px-5 py-3 text-center text-sm font-semibold text-porcelain-50 transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink-800 hover:shadow-lg"
       >
         Book a Consultation
       </a>
@@ -136,9 +133,9 @@ const fallbackRelated = related.length ? related : treatments.filter((t) => t.sl
   </section>
 
   <section class="border-t border-ink-900/10 bg-porcelain-100/60 py-16">
-    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8" data-reveal>
       <h2 class="font-display text-2xl font-semibold text-ink-900">You might also consider</h2>
-      <div class="mt-6 grid gap-5 sm:grid-cols-3">
+      <div class="mt-6 grid gap-5 sm:grid-cols-3" data-reveal="stagger">
         {fallbackRelated.map((t) => <TreatmentCard treatment={t} />)}
       </div>
     </div>
