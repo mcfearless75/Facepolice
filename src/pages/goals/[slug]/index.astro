@@ -1,0 +1,46 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import TreatmentCard from '@/components/TreatmentCard.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { goals } from '@/data/goals';
+import { treatments } from '@/data/treatments';
+import { breadcrumbSchema } from '@/data/schema';
+
+export function getStaticPaths() {
+  return goals.map((g) => ({ params: { slug: g.slug }, props: { goal: g } }));
+}
+
+const { goal } = Astro.props;
+const matched = treatments.filter((t) => t.goals.includes(goal.slug));
+---
+
+<Layout
+  title={`${goal.name} Treatments | Face Crease Police® Hoylake`}
+  description={`${goal.description} Book a consultation at Face Crease Police in Hoylake, Wirral.`}
+  path={`/goals/${goal.slug}/`}
+  schema={[breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Treatments by Goal', path: '/goals/' },
+    { name: goal.name, path: `/goals/${goal.slug}/` },
+  ])]}
+>
+  <section class="border-b border-ink-900/10 bg-white">
+    <div class="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
+      <nav class="text-xs text-ink-900/50">
+        <a href="/goals/" class="hover:text-ink-900">Treatments by Goal</a> / {goal.name}
+      </nav>
+      <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight text-ink-900 sm:text-5xl">{goal.name}</h1>
+      <p class="mt-3 font-display text-xl font-medium text-gold-600">{goal.strapline}</p>
+      <p class="mt-6 text-lg leading-relaxed text-ink-900/70">{goal.description}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 py-16 sm:px-8">
+    <h2 class="font-display text-2xl font-semibold text-ink-900">Treatments in this category</h2>
+    <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {matched.map((t) => <TreatmentCard treatment={t} />)}
+    </div>
+  </section>
+
+  <CtaBand heading={`Talk through your ${goal.name} plan`} />
+</Layout>
